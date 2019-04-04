@@ -22,12 +22,11 @@ package org.teamapps.examples.components.fields.specialfields;
 
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
-import org.teamapps.examples.AbstractExample;
 import org.teamapps.icons.api.Icons;
 import org.teamapps.ux.component.panel.Panel;
 
 @TeamAppsDocClass(title = "Component Field")
-public class ComponentFieldExample extends AbstractExample {
+public class ComponentFieldExample {
 
 
 	/**

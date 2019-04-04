@@ -22,12 +22,11 @@ package org.teamapps.examples.tutorials;
 
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
-import org.teamapps.examples.AbstractExample;
 import org.teamapps.icons.api.Icons;
 import org.teamapps.ux.component.panel.Panel;
 
 @TeamAppsDocClass(title = "Building an application")
-public class BuildingAnApplicationExample extends AbstractExample {
+public class BuildingAnApplicationExample {
 
 
 	/**

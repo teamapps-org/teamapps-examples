@@ -22,12 +22,11 @@ package org.teamapps.examples.components.fields.textfields;
 
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
-import org.teamapps.examples.AbstractExample;
 import org.teamapps.icons.api.Icons;
 import org.teamapps.ux.component.panel.Panel;
 
 @TeamAppsDocClass(title = "Text Field")
-public class TextFieldExample extends AbstractExample {
+public class TextFieldExample {
 
 
 	/**

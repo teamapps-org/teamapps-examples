@@ -22,12 +22,11 @@ package org.teamapps.examples.concepts.icons;
 
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
-import org.teamapps.examples.AbstractExample;
 import org.teamapps.icons.api.Icons;
 import org.teamapps.ux.component.panel.Panel;
 
 @TeamAppsDocClass(title = "Custom Icons")
-public class CustomIconsExample extends AbstractExample {
+public class CustomIconsExample {
 
 
 	/**

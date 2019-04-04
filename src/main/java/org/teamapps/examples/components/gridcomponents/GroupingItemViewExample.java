@@ -22,12 +22,11 @@ package org.teamapps.examples.components.gridcomponents;
 
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
-import org.teamapps.examples.AbstractExample;
 import org.teamapps.icons.api.Icons;
 import org.teamapps.ux.component.panel.Panel;
 
 @TeamAppsDocClass(title = "Grouping Item View")
-public class GroupingItemViewExample extends AbstractExample {
+public class GroupingItemViewExample {
 
 
 	/**

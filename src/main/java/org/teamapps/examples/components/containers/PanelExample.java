@@ -22,23 +22,21 @@ package org.teamapps.examples.components.containers;
 
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
-import org.teamapps.examples.AbstractExample;
 import org.teamapps.icons.api.Icons;
 import org.teamapps.ux.component.panel.Panel;
 
 @TeamAppsDocClass(title = "Panel")
-public class PanelExample extends AbstractExample {
-
+public class PanelExample {
 
 	/**
 	 * TODO Add documentation.
 	 */
-	@TeamAppsDocMethod(title = "Example 1")
+	@TeamAppsDocMethod(title = "")
 	public void createExamplePanel() {
 		// TODO Write example code.
 		Panel panel = new Panel(Icons.FOLDER3, "Example panel");
 		panel.setStretchContent(false);
 		panel.setPadding(10);
-
 	}
+
 }

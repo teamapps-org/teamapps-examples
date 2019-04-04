@@ -22,12 +22,11 @@ package org.teamapps.examples.concepts.eventhandling;
 
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
-import org.teamapps.examples.AbstractExample;
 import org.teamapps.icons.api.Icons;
 import org.teamapps.ux.component.panel.Panel;
 
 @TeamAppsDocClass(title = "Examples")
-public class ExamplesExample extends AbstractExample {
+public class ExamplesExample {
 
 
 	/**
