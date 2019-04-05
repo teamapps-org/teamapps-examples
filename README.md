@@ -16,3 +16,8 @@ which will fail when running for the first time.
 
 4. Optional: To customize the running port, set the env var `TEAMAPPS_EXAMPLES_PORT` 
 to the port of your liking in the run config. 
+
+## Icon usage in examples
+
+Icons can be used in examples by using constants on the MaterialIcon class. 
+The icon names can be found here: https://www.iconfu.com/main#/icons/5/1
