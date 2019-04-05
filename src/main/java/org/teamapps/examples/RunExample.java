@@ -6,11 +6,11 @@ import java.util.Map;
 
 public class RunExample extends AbstractRunExample {
 
-	public RunExample(int port) {
+	private RunExample(int port) {
 		super(port);
 	}
 
-	public static int getPort() {
+	private static int getPort() {
 		Map<String, String> env = System.getenv();
 		int defaultPort = 8080;
 		String port = env.get("TEAMAPPS_EXAMPLES_PORT");
