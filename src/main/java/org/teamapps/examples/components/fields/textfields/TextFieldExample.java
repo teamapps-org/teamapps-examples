@@ -43,6 +43,7 @@ public class TextFieldExample {
 		TextField textField = new TextField();
 		textField.onValueChanged.addListener(text -> {
 			CurrentSessionContext.get().showNotification(MaterialIcon.MESSAGE, "Value changed: " + text);
+			System.out.println(textField.getValue());
 		});
 		textField.setEmptyText("Please enter text...");
 		return textField;
@@ -125,13 +126,15 @@ public class TextFieldExample {
 	@TeamAppsDocMethod(title = "Events")
 	public Component events() {
 		TextField textField = new TextField();
+		textField.onValueChanged.addListener(text -> {
+			CurrentSessionContext.get().showNotification(MaterialIcon.MESSAGE, "Value changed: " + text);
+		});
 		textField.onTextInput.addListener(text -> {
 			CurrentSessionContext.get().showNotification(MaterialIcon.MESSAGE, "Text input: " + text);
 		});
 		textField.onSpecialKeyPressed.addListener(specialKey -> {
 			CurrentSessionContext.get().showNotification(MaterialIcon.MESSAGE, "Special key pressed: " + specialKey.name());
 		});
-		textField.setEmptyText("Please enter text...");
 		return textField;
 	}
 }
