@@ -22,7 +22,7 @@ package org.teamapps.examples.components.containers;
 
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
-import org.teamapps.icons.api.Icons;
+import org.teamapps.icon.material.MaterialIcon;
 import org.teamapps.ux.component.panel.Panel;
 
 @TeamAppsDocClass(title = "Panel")
@@ -34,7 +34,7 @@ public class PanelExample {
 	@TeamAppsDocMethod(title = "")
 	public void createExamplePanel() {
 		// TODO Write example code.
-		Panel panel = new Panel(Icons.FOLDER3, "Example panel");
+		Panel panel = new Panel(MaterialIcon.FOLDER, "Example panel");
 		panel.setStretchContent(false);
 		panel.setPadding(10);
 	}

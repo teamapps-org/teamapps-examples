@@ -1,13 +1,15 @@
 package org.teamapps.examples;
 
 import com.google.common.io.Files;
+import org.teamapps.common.format.Color;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
 import org.teamapps.server.jetty.embedded.TeamAppsJettyEmbeddedServer;
 import org.teamapps.util.ReflectionUtil;
 import org.teamapps.ux.component.Component;
-import org.teamapps.ux.component.absolutelayout.AbsoluteLayout;
-import org.teamapps.ux.component.absolutelayout.AbsolutePosition;
 import org.teamapps.ux.component.absolutelayout.Length;
+import org.teamapps.ux.component.flexcontainer.VerticalLayout;
+import org.teamapps.ux.component.format.Spacing;
+import org.teamapps.ux.component.toolbar.Toolbar;
 import org.teamapps.webcontroller.SimpleWebController;
 import org.teamapps.webcontroller.WebController;
 
@@ -24,23 +26,21 @@ public abstract class AbstractRunExample {
 
 	public void runServerWithExamples(Object ... examples) {
 		try {
-			WebController controller = new SimpleWebController(context -> {
-				final AbsoluteLayout absoluteLayout = new AbsoluteLayout();
+			WebController controller = SimpleWebController.createDefaultController(context -> {
+				final VerticalLayout verticalLayout = new VerticalLayout();
 				for (Object example : examples) {
 					List<Method> methods = ReflectionUtil.findMethods(example.getClass(), method -> true);
 					int top = 10;
 					for (Method method : methods) {
 						try {
 							if (method.getAnnotation(TeamAppsDocMethod.class) != null && method.getParameterTypes().length == 0) {
-								if (ExampleComponent.class.isAssignableFrom(method.getReturnType())) {
-									ExampleComponent exampleComponent = (ExampleComponent) method.invoke(example);
-									Length width = exampleComponent.getWidth() == 0 ? null : new Length(exampleComponent.getWidth());
-									Length height = exampleComponent.getHeight() == 0 ? null : new Length(exampleComponent.getHeight());
-									absoluteLayout.putComponent(exampleComponent.getComponent(), new AbsolutePosition(new Length(top), new Length(30), null, new Length(30), width,  height, 1));
-								} else if (Component.class.isAssignableFrom(method.getReturnType())) {
+								if (Component.class.isAssignableFrom(method.getReturnType())) {
 									Component component = (Component) method.invoke(example);
-									absoluteLayout.putComponent(component, new AbsolutePosition(new Length(top), new Length(30), null, new Length(30), null,  null, 1));
-									top += 100;
+									if (!(component instanceof Toolbar)) {
+										component.setMinHeight(new Length(500));
+									}
+									component.setMargin(new Spacing(15, 30));
+									verticalLayout.addComponent(component);
 								}
 							}
 						} catch (Exception e) {
@@ -48,8 +48,8 @@ public abstract class AbstractRunExample {
 						}
 					}
 				}
-				return absoluteLayout;
-			});
+				return verticalLayout;
+			}, Color.WHITE);
 			new TeamAppsJettyEmbeddedServer(controller, Files.createTempDir()).start();
 		} catch (Exception e) {
 			e.printStackTrace();
