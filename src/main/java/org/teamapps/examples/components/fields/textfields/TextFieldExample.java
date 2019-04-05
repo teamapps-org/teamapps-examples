@@ -76,7 +76,7 @@ public class TextFieldExample {
 
 	/**
 	 * <p>
-	 *     If <code>showClearButton</code> is true, the text field displays a small "delete" button on the right.
+	 *     If <code>showClearButton</code> is true, the text field displays a small "delete" button on the right, <strong>if</strong> the field is not empty.
 	 * </p>
 	 */
 	@TeamAppsDocMethod(title = "Clear Button", images = "TextField-showClearButton.png")

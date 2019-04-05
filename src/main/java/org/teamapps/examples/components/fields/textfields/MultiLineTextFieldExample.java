@@ -24,6 +24,8 @@ import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
 import org.teamapps.icon.material.MaterialIcon;
 import org.teamapps.ux.component.Component;
+import org.teamapps.ux.component.absolutelayout.Length;
+import org.teamapps.ux.component.absolutelayout.SizeUnit;
 import org.teamapps.ux.component.field.MultiLineTextField;
 import org.teamapps.ux.session.CurrentSessionContext;
 
@@ -76,7 +78,7 @@ public class MultiLineTextFieldExample {
 
 	/**
 	 * <p>
-	 *     If <code>showClearButton</code> is true, the text field displays a small "delete" button on the right.
+	 *     If <code>showClearButton</code> is true, the text field displays a small "delete" button on the right, <strong>if</strong> the field is not empty.
 	 * </p>
 	 */
 	@TeamAppsDocMethod(title = "Clear Button", images = "MultiLineTextField-showClearButton.png")
@@ -84,6 +86,20 @@ public class MultiLineTextFieldExample {
 		MultiLineTextField multiLineTextField = new MultiLineTextField();
 		multiLineTextField.setShowClearButton(true);
 		multiLineTextField.setValue("Some text");
+		return multiLineTextField;
+	}
+
+	/**
+	 * <p>
+	 *     User <code>Component</code>'s <code>setMinHeight()</code> and <code>setMaxHeight()</code> methods to control the height of the field with respect to the user input's height.
+	 *     This will work if the container does not impose a specific size of the field.
+	 * </p>
+	 */
+	@TeamAppsDocMethod(title = "Controlling the Height")
+	public Component setMinMaxHeight() {
+		MultiLineTextField multiLineTextField = new MultiLineTextField();
+		multiLineTextField.setMinHeight(new Length(50, SizeUnit.PIXEL));
+		multiLineTextField.setMaxHeight(new Length(500, SizeUnit.PIXEL));
 		return multiLineTextField;
 	}
 
