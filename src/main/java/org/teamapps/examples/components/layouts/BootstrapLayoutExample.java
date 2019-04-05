@@ -23,21 +23,21 @@ package org.teamapps.examples.components.layouts;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
 import org.teamapps.icon.material.MaterialIcon;
+import org.teamapps.ux.component.Component;
 import org.teamapps.ux.component.panel.Panel;
 
 @TeamAppsDocClass(title = "Bootstrap Layout")
 public class BootstrapLayoutExample {
 
-
 	/**
 	 * TODO Add documentation.
 	 */
-	@TeamAppsDocMethod(title = "Example 1")
-	public void createExamplePanel() {
+	@TeamAppsDocMethod(title = "Example 1", images = {"tree.png", "tree2.png", "tree.png"})
+	public Component createExampleComponent() {
 		// TODO Write example code.
 		Panel panel = new Panel(MaterialIcon.FOLDER, "Example panel");
 		panel.setStretchContent(false);
 		panel.setPadding(10);
-
+		return panel;
 	}
 }

@@ -23,21 +23,21 @@ package org.teamapps.examples.components.fields.date;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
 import org.teamapps.icon.material.MaterialIcon;
+import org.teamapps.ux.component.Component;
 import org.teamapps.ux.component.panel.Panel;
 
 @TeamAppsDocClass(title = "Local Date Time Field")
 public class LocalDateTimeFieldExample {
 
-
 	/**
 	 * TODO Add documentation.
 	 */
 	@TeamAppsDocMethod(title = "Example 1")
-	public void createExamplePanel() {
+	public Component createExampleComponent() {
 		// TODO Write example code.
 		Panel panel = new Panel(MaterialIcon.FOLDER, "Example panel");
 		panel.setStretchContent(false);
 		panel.setPadding(10);
-
+		return panel;
 	}
 }
