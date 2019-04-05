@@ -24,7 +24,8 @@ import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
 import org.teamapps.icon.material.MaterialIcon;
 import org.teamapps.ux.component.Component;
-import org.teamapps.ux.component.panel.Panel;
+import org.teamapps.ux.component.field.TextField;
+import org.teamapps.ux.session.CurrentSessionContext;
 
 @TeamAppsDocClass(title = "Text Field")
 public class TextFieldExample {
@@ -34,10 +35,11 @@ public class TextFieldExample {
 	 */
 	@TeamAppsDocMethod(title = "Example 1")
 	public Component createExampleComponent() {
-		// TODO Write example code.
-		Panel panel = new Panel(MaterialIcon.FOLDER, "Example panel");
-		panel.setStretchContent(false);
-		panel.setPadding(10);
-		return panel;
+		TextField textField = new TextField();
+		textField.onValueChanged.addListener(text -> {
+			CurrentSessionContext.get().showNotification(MaterialIcon.MESSAGE, text);
+		});
+		textField.setEmptyText("Please enter text...");
+		return textField;
 	}
 }
