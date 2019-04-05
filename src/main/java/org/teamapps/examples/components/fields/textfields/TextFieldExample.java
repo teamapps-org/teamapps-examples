@@ -38,13 +38,51 @@ public class TextFieldExample {
 	 *     The field's value can be accessed via <code>getValue()</code>.
 	 * </p>
 	 */
-	@TeamAppsDocMethod(title = "", images = "TextField-1.png")
-	public Component createTextField1() {
+	@TeamAppsDocMethod(title = "", images = "TextField-intro.png")
+	public Component intro() {
 		TextField textField = new TextField();
 		textField.onValueChanged.addListener(text -> {
 			CurrentSessionContext.get().showNotification(MaterialIcon.MESSAGE, "Value changed: " + text);
 		});
 		textField.setEmptyText("Please enter text...");
+		return textField;
+	}
+
+	/**
+	 * <p>
+	 *     <code>emptyText</code> specifies the placeholder text while the text field is empty.
+	 * </p>
+	 */
+	@TeamAppsDocMethod(title = "Empty Text", images = "TextField-emptyText.png")
+	public Component emptyText() {
+		TextField textField = new TextField();
+		textField.setEmptyText("Please enter your user name...");
+		return textField;
+	}
+
+	/**
+	 * <p>
+	 *     <code>maxCharacters</code> can be used to limit maximum number of characters.
+	 *     When the user reaches the limit, additional text input will be ignored.
+	 * </p>
+	 */
+	@TeamAppsDocMethod(title = "Maximum Characters")
+	public Component maxCharacters() {
+		TextField textField = new TextField();
+		textField.setMaxCharacters(10);
+		return textField;
+	}
+
+	/**
+	 * <p>
+	 *     If <code>showClearButton</code> is true, the text field displays a small "delete" button on the right.
+	 * </p>
+	 */
+	@TeamAppsDocMethod(title = "Clear Button", images = "TextField-showClearButton.png")
+	public Component showClearButton() {
+		TextField textField = new TextField();
+		textField.setShowClearButton(true);
+		textField.setValue("Some text");
 		return textField;
 	}
 
@@ -85,7 +123,7 @@ public class TextFieldExample {
 	 * </div>
 	 */
 	@TeamAppsDocMethod(title = "Events")
-	public Component createTextField3() {
+	public Component events() {
 		TextField textField = new TextField();
 		textField.onTextInput.addListener(text -> {
 			CurrentSessionContext.get().showNotification(MaterialIcon.MESSAGE, "Text input: " + text);
