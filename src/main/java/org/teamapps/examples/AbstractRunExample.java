@@ -11,16 +11,23 @@ import org.teamapps.ux.component.Component;
 import org.teamapps.ux.component.absolutelayout.Length;
 import org.teamapps.ux.component.flexcontainer.VerticalLayout;
 import org.teamapps.ux.component.format.Spacing;
-import org.teamapps.ux.component.toolbar.Toolbar;
+import org.teamapps.ux.component.panel.Panel;
+import org.teamapps.ux.component.table.Table;
 import org.teamapps.webcontroller.SimpleWebController;
 import org.teamapps.webcontroller.WebController;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public abstract class AbstractRunExample {
 	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractRunExample.class);
+	private static final Map<Class<? extends Component>, Integer> DEFAULT_MIN_HEIGHTS = new HashMap<>() {{
+		put(Panel.class, 500);
+		put(Table.class, 500);
+	}};
 
 	public void runServerWithExamples(Object example) {
 		runServerWithExamples(new Object[]{example});
@@ -41,8 +48,8 @@ public abstract class AbstractRunExample {
 									Component component = (Component) method.invoke(example);
 									if (docAnnotation.height() > 0) {
 										component.setMinHeight(new Length(docAnnotation.height()));
-									} else if (!(component instanceof Toolbar)) {
-										component.setMinHeight(new Length(500));
+									} else if (DEFAULT_MIN_HEIGHTS.containsKey(component.getClass())) {
+										component.setMinHeight(new Length(DEFAULT_MIN_HEIGHTS.get(component.getClass())));
 									}
 									component.setMargin(new Spacing(15, 30));
 									verticalLayout.addComponent(component);
