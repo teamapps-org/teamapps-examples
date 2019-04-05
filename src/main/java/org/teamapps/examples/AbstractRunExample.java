@@ -29,6 +29,12 @@ public abstract class AbstractRunExample {
 		put(Table.class, 500);
 	}};
 
+	int port;
+
+	AbstractRunExample(int port) {
+		this.port = port;
+	}
+
 	public void runServerWithExamples(Object example) {
 		runServerWithExamples(new Object[]{example});
 	}
@@ -65,7 +71,7 @@ public abstract class AbstractRunExample {
 				}
 				return verticalLayout;
 			}, Color.WHITE);
-			new TeamAppsJettyEmbeddedServer(controller, Files.createTempDir()).start();
+			new TeamAppsJettyEmbeddedServer(controller, Files.createTempDir(), port).start();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
