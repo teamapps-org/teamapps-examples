@@ -31,7 +31,7 @@ public class AbsoluteLayoutExample {
 	/**
 	 * TODO Add documentation.
 	 */
-	@TeamAppsDocMethod(title = "Example 1", images = {"tree2.png"}, height = 123)
+	@TeamAppsDocMethod(title = "Example 1", height = 123)
 	public Component createExampleComponent() {
 		// TODO Write example code.
 		Panel panel = new Panel(MaterialIcon.FOLDER, "Example panel");

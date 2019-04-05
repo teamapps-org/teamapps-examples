@@ -32,7 +32,7 @@ public class BootstrapLayoutExample {
 	/**
 	 * TODO Add documentation.
 	 */
-	@TeamAppsDocMethod(title = "Example 1", images = {"tree.png", "tree2.png", "tree.png"})
+	@TeamAppsDocMethod(title = "Example 1")
 	public Component createExampleComponent() {
 		// TODO Write example code.
 		Panel panel = new Panel(MaterialIcon.FOLDER, "Example panel");
