@@ -28,16 +28,20 @@ import org.teamapps.ux.component.panel.Panel;
 
 @TeamAppsDocClass(title = "Panel")
 public class PanelExample {
-	/**
-	 * TODO Add documentation.
-	 */
-	@TeamAppsDocMethod(title = "")
-	public Component createExampleComponent() {
-		// TODO Write example code.
-		Panel panel = new Panel(MaterialIcon.FOLDER, "Example panel");
-		panel.setStretchContent(false);
-		panel.setPadding(10);
-		return panel;
-	}
-
+    
+    /**
+     *  <p>
+     *      <code>Panel</code> is the simplest container entity.
+     *      Its default state is a box with a border, a title and an icon.
+     *  </p>
+     */
+    @TeamAppsDocMethod(title = "Simple Panel", images = "Panel-simplePanel.png")
+    public Component simplePanel() {
+        Panel panel = new Panel(MaterialIcon.FOLDER, "Simple Panel");
+        panel.setStretchContent(false);
+        panel.setPadding(10);
+        return panel;
+    }
+    
+    
 }
