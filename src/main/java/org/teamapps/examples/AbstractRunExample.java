@@ -43,6 +43,7 @@ public abstract class AbstractRunExample {
 		try {
 			WebController controller = SimpleWebController.createDefaultController(context -> {
 				final VerticalLayout verticalLayout = new VerticalLayout();
+				verticalLayout.setCssStyle("overflow-y", "auto");
 				for (Object example : examples) {
 					List<Method> methods = ReflectionUtil.findMethods(example.getClass(), method -> true);
 					int top = 10;
