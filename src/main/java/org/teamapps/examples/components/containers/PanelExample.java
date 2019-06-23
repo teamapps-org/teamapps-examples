@@ -24,18 +24,25 @@ import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
 import org.teamapps.icon.material.MaterialIcon;
 import org.teamapps.ux.component.Component;
-import org.teamapps.ux.component.field.ImageField;
+import org.teamapps.ux.component.absolutelayout.Length;
+import org.teamapps.ux.component.absolutelayout.SizeUnit;
 import org.teamapps.ux.component.field.Label;
 import org.teamapps.ux.component.flexcontainer.VerticalLayout;
 import org.teamapps.ux.component.panel.Panel;
-import org.teamapps.ux.component.toolbutton.ToolButton;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * TODO: Replace Screenshots when maxHeight=100px and maxWidth=300px works correctly
+ * => Because the images do fit better into the documentation with height 100px than height over 400px
+ */
 @TeamAppsDocClass(title = "Panel")
 public class PanelExample {
+    
+    private int MAX_WIDTH_INT = 400;
+    private int MAX_HEIGHT_INT = 200;
     
     /**
      *  <p>
@@ -48,6 +55,8 @@ public class PanelExample {
         Panel panel = new Panel(MaterialIcon.FOLDER, "Simple Panel");
         panel.setStretchContent(false);
         panel.setPadding(10);
+        panel.setMaxWidth(new Length(MAX_WIDTH_INT, SizeUnit.PIXEL));
+        panel.setMaxHeight(new Length(MAX_HEIGHT_INT, SizeUnit.PIXEL));
         return panel;
     }
     
@@ -57,16 +66,15 @@ public class PanelExample {
      *      The child can be added by calling <code>panel.setContent()</code>.
      *  </p>
      *
-     *  TODO: Screenshot missing (fix when scrolling in RunExample Class is fixed)
      */
     @TeamAppsDocMethod(title = "Panel with Child", images = "Panel-withChild.png")
     public Component panelWithChild() {
         Panel panel = new Panel(MaterialIcon.FOLDER, "Panel with Child");
         panel.setStretchContent(true);
         panel.setPadding(10);
+        panel.setMaxWidth(new Length(MAX_WIDTH_INT, SizeUnit.PIXEL));
+        panel.setMaxHeight(new Length(MAX_HEIGHT_INT, SizeUnit.PIXEL));
         panel.setContent(new Label("This is some example content with an icon.", MaterialIcon.WALLPAPER));
-        
-        panel.addToolButton(new ToolButton(MaterialIcon.TRAFFIC));
         return panel;
     }
     
@@ -78,49 +86,27 @@ public class PanelExample {
      *      Please see the section about layout components for more in-depth information
      *  </p>
      *
-     *  TODO: Screenshot missing (fix when scrolling in RunExample Class is fixed)
      */
     @TeamAppsDocMethod(title = "Panel with Children", images = "Panel-withChildren.png")
     public Component panelWithChildren() {
         VerticalLayout layout = new VerticalLayout();
         
-        Panel iconPanel = new Panel(MaterialIcon.TRAFFIC, "Extensive Icon List");
+        // This makes the vertical layout scrollable
+        layout.setCssStyle("overflow-y", "auto");
+        
+        Panel iconPanel = new Panel(MaterialIcon.TRAFFIC, "Icon List");
         iconPanel.setContent(layout);
         iconPanel.setPadding(10);
-    
-        List<MaterialIcon> iconList = new ArrayList<>(Arrays.asList(MaterialIcon.values())).subList(0, 20);
-    
+        iconPanel.setMaxWidth(new Length(MAX_WIDTH_INT, SizeUnit.PIXEL));
+        iconPanel.setMaxHeight(new Length(MAX_HEIGHT_INT, SizeUnit.PIXEL));
+        
+        List<MaterialIcon> iconList = new ArrayList<>(Arrays.asList(MaterialIcon.values())).subList(0, 100);
+        
         for (MaterialIcon icon : iconList) {
-            // each panel has the same height, but vertical layout not scrollable
-//                layout.addComponentAutoSize(new Panel(icon, icon.getIconName()));
-        
-            // each panel will be scaled to fit on screen (super small)
-//                layout.addComponent(new Panel(icon, icon.getIconName()));
-        
-            layout.addComponentAutoSize(new Label(icon.getIconName(), icon));
+            layout.addComponent(new Label(icon.getIconName(), icon));
         }
         
         return iconPanel;
     }
-    
-    /**
-     *  <p>
-     *      If you want to have scrollable content inside a <code>Panel</code>
-     *      you need ???
-     *  </p>
-     *
-     *  TODO: Screenshot missing (fix when scrolling in RunExample Class is fixed)
-     *  TODO: How to make Panel Scrollable?
-     */
-    @TeamAppsDocMethod(title = "Panel with scrollable Content", images = "Panel-withScrollableContent.png")
-    public Component panelWithScrollableContent() {
-        Panel panel = new Panel(MaterialIcon.FOLDER, "Panel with Child");
-        panel.setStretchContent(true);
-        panel.setPadding(10);
-        
-        panel.setContent(new Label("This is some example content with an icon.", MaterialIcon.WALLPAPER));
-        return panel;
-    }
-    
     
 }
