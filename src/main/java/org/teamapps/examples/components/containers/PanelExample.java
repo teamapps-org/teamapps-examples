@@ -25,6 +25,7 @@ import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
 import org.teamapps.icon.material.MaterialIcon;
 import org.teamapps.ux.component.Component;
 import org.teamapps.ux.component.panel.Panel;
+import org.teamapps.ux.component.toolbutton.ToolButton;
 
 @TeamAppsDocClass(title = "Panel")
 public class PanelExample {
@@ -40,6 +41,23 @@ public class PanelExample {
         Panel panel = new Panel(MaterialIcon.FOLDER, "Simple Panel");
         panel.setStretchContent(false);
         panel.setPadding(10);
+        return panel;
+    }
+    
+    /**
+     *  <p>
+     *      <code>Panel</code> is the simplest container entity.
+     *      Its default state is a box with a border, a title and an icon.
+     *  </p>
+     */
+    @TeamAppsDocMethod(title = "Advanced Panel", images = "Panel-advancedPanel.png")
+    public Component advancedPanel() {
+        Panel panel = new Panel(MaterialIcon.FOLDER, "Simple Panel");
+        panel.setStretchContent(true);
+        panel.setPadding(10);
+        
+        // TODO: ToolButton seems to do nothing
+        panel.addToolButton(new ToolButton(MaterialIcon.TRAFFIC));
         return panel;
     }
     
