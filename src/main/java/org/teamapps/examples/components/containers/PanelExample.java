@@ -100,23 +100,24 @@ public class PanelExample {
             layout.addComponentAutoSize(new Label(icon.getIconName(), icon));
         }
         
-        
         return iconPanel;
     }
     
     /**
      *  <p>
-     *      A <code>Panel</code> can have exactly one child <code>Component</code>.
-     *      The child can be added by calling <code>panel.setContent()</code>.
+     *      If you want to have scrollable content inside a <code>Panel</code>
+     *      you need ???
      *  </p>
      *
      *  TODO: Screenshot missing (fix when scrolling in RunExample Class is fixed)
+     *  TODO: How to make Panel Scrollable?
      */
     @TeamAppsDocMethod(title = "Panel with scrollable Content", images = "Panel-withScrollableContent.png")
     public Component panelWithScrollableContent() {
         Panel panel = new Panel(MaterialIcon.FOLDER, "Panel with Child");
         panel.setStretchContent(true);
         panel.setPadding(10);
+        
         panel.setContent(new Label("This is some example content with an icon.", MaterialIcon.WALLPAPER));
         return panel;
     }
