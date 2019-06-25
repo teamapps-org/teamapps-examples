@@ -22,15 +22,13 @@ package org.teamapps.examples.components.layouts;
 
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
+import org.teamapps.examples.util.ExampleUtil;
 import org.teamapps.icon.material.MaterialIcon;
 import org.teamapps.ux.component.Component;
-import org.teamapps.ux.component.absolutelayout.Length;
-import org.teamapps.ux.component.absolutelayout.SizeUnit;
 import org.teamapps.ux.component.field.Label;
 import org.teamapps.ux.component.flexcontainer.FlexSizeUnit;
 import org.teamapps.ux.component.flexcontainer.FlexSizingPolicy;
 import org.teamapps.ux.component.flexcontainer.VerticalLayout;
-import org.teamapps.ux.component.panel.Panel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,19 +37,6 @@ import java.util.Random;
 
 @TeamAppsDocClass(title = "Vertical Layout")
 public class VerticalLayoutExample {
-    
-    private int MAX_WIDTH_INT = 400;
-    private int MAX_HEIGHT_INT = 200;
-    
-    private Panel generateContainerPanel(String title) {
-        Panel containerPanel = new Panel(MaterialIcon.LAYERS, title);
-        containerPanel.setStretchContent(false);
-        containerPanel.setPadding(10);
-        containerPanel.setMaxWidth(new Length(MAX_WIDTH_INT, SizeUnit.PIXEL));
-        containerPanel.setMaxHeight(new Length(MAX_HEIGHT_INT, SizeUnit.PIXEL));
-        
-        return containerPanel;
-    }
     
     /**
      * <code>VerticalLayout</code> allows multiple children to be stacked vertically.
@@ -72,7 +57,7 @@ public class VerticalLayoutExample {
         }
         
         // This panel is used to contain the vertical layout in a small box.
-        var containerPanel = this.generateContainerPanel("Simple Vertical Layout");
+        var containerPanel = ExampleUtil.generateContainerPanel("Simple Vertical Layout");
         containerPanel.setContent(layout);
         
         return containerPanel;
@@ -101,7 +86,7 @@ public class VerticalLayoutExample {
         }
         
         // This panel is used to contain the vertical layout in a small box.
-        var containerPanel = this.generateContainerPanel("Vertical Layout with FlexSizingProperties");
+        var containerPanel = ExampleUtil.generateContainerPanel("Vertical Layout with FlexSizingProperties");
         containerPanel.setContent(layout);
         
         return containerPanel;
