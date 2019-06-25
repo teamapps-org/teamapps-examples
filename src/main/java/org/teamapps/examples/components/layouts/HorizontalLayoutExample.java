@@ -22,22 +22,45 @@ package org.teamapps.examples.components.layouts;
 
 import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
+import org.teamapps.examples.util.ExampleUtil;
 import org.teamapps.icon.material.MaterialIcon;
 import org.teamapps.ux.component.Component;
-import org.teamapps.ux.component.panel.Panel;
+import org.teamapps.ux.component.field.Label;
+import org.teamapps.ux.component.flexcontainer.HorizontalLayout;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @TeamAppsDocClass(title = "Horizontal Layout")
 public class HorizontalLayoutExample {
-
-	/**
-	 * TODO Add documentation.
-	 */
-	@TeamAppsDocMethod(title = "Example 1")
-	public Component createExampleComponent() {
-		// TODO Write example code.
-		Panel panel = new Panel(MaterialIcon.FOLDER, "Example panel");
-		panel.setStretchContent(false);
-		panel.setPadding(10);
-		return panel;
-	}
+    
+    /**
+     * <code>HorizontalLayout</code> allows multiple children to be positioned next to each other on the same row.
+     * Note, that this layout is not scrollable per default.
+     * It can be made scrollable by using css, as shown below.
+     */
+    @TeamAppsDocMethod(title = "Simple Horizontal Layout", images = "HorizontalLayout-simple.png")
+    public Component simpleHorizontalLayout() {
+        HorizontalLayout layout = new HorizontalLayout();
+        
+        // This makes the horizontal layout scrollable
+        layout.setCssStyle("overflow-x", "auto");
+        
+        List<MaterialIcon> iconList = new ArrayList<>(Arrays.asList(MaterialIcon.values())).subList(0, 20);
+        
+        for (MaterialIcon icon : iconList) {
+            Label label = new Label(icon.getIconName(), icon);
+            label.setCssStyle("padding", "10px 20px");
+            layout.addComponent(label);
+        }
+        
+        // This panel is used to contain the vertical layout in a small box.
+        var containerPanel = ExampleUtil.generateContainerPanel(
+                "Simple Horizontal Layout",
+                800, 200);
+        containerPanel.setContent(layout);
+        
+        return containerPanel;
+    }
 }
