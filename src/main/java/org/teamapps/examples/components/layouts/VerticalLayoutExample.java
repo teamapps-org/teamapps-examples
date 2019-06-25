@@ -24,20 +24,34 @@ import org.teamapps.documentation.generator.annotation.TeamAppsDocClass;
 import org.teamapps.documentation.generator.annotation.TeamAppsDocMethod;
 import org.teamapps.icon.material.MaterialIcon;
 import org.teamapps.ux.component.Component;
-import org.teamapps.ux.component.panel.Panel;
+import org.teamapps.ux.component.field.Label;
+import org.teamapps.ux.component.flexcontainer.VerticalLayout;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @TeamAppsDocClass(title = "Vertical Layout")
 public class VerticalLayoutExample {
+    
+    /**
+     * <code>VerticalLayout</code> allows multiple children to be stacked vertically.
+     * Note, that this layout is not scrollable per default.
+     * It can be made scrollable by using css, as shown below.
+     */
+    @TeamAppsDocMethod(title = "Simple Vertical Layout", images = "VerticalLayout-simple.png")
+    public Component simpleVerticalLayout() {
+        VerticalLayout layout = new VerticalLayout();
 
-	/**
-	 * TODO Add documentation.
-	 */
-	@TeamAppsDocMethod(title = "Example 1")
-	public Component createExampleComponent() {
-		// TODO Write example code.
-		Panel panel = new Panel(MaterialIcon.FOLDER, "Example panel");
-		panel.setStretchContent(false);
-		panel.setPadding(10);
-		return panel;
-	}
+        // This makes the vertical layout scrollable
+        layout.setCssStyle("overflow-y", "auto");
+        
+        List<MaterialIcon> iconList = new ArrayList<>(Arrays.asList(MaterialIcon.values())).subList(0, 100);
+        
+        for (MaterialIcon icon : iconList) {
+            layout.addComponent(new Label(icon.getIconName(), icon));
+        }
+        
+        return layout;
+    }
 }
