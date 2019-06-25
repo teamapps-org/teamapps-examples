@@ -7,15 +7,16 @@ import org.teamapps.ux.component.panel.Panel;
 
 public class ExampleUtil {
     
-    private static int MAX_WIDTH_INT = 400;
-    private static int MAX_HEIGHT_INT = 200;
-    
     public static Panel generateContainerPanel(String title) {
+        return generateContainerPanel(title, 400, 200);
+    }
+    
+    public static Panel generateContainerPanel(String title, int maxWidth, int maxHeight) {
         Panel containerPanel = new Panel(MaterialIcon.LAYERS, title);
         containerPanel.setStretchContent(false);
         containerPanel.setPadding(10);
-        containerPanel.setMaxWidth(new Length(MAX_WIDTH_INT, SizeUnit.PIXEL));
-        containerPanel.setMaxHeight(new Length(MAX_HEIGHT_INT, SizeUnit.PIXEL));
+        containerPanel.setMaxWidth(new Length(maxWidth, SizeUnit.PIXEL));
+        containerPanel.setMaxHeight(new Length(maxHeight, SizeUnit.PIXEL));
         
         return containerPanel;
     }
