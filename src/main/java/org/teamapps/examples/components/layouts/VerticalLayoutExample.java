@@ -83,7 +83,7 @@ public class VerticalLayoutExample {
      * Since <code>VerticalLayout</code> is based on CSS FlexBox, each item can be sized with FlexSizingProperties.
      */
     @TeamAppsDocMethod(title = "Vertical Layout with FlexSizingProperties", images = "VerticalLayout-flexProperties.png")
-    public Component FlexSizingProperties() {
+    public Component flexSizingProperties() {
         VerticalLayout layout = new VerticalLayout();
         
         // This makes the vertical layout scrollable
@@ -107,5 +107,23 @@ public class VerticalLayoutExample {
         return containerPanel;
     }
     
+    
+    /**
+     *
+     */
+    @TeamAppsDocMethod(title = "Add Components with auto size", images = "")
+    public Component addComponentAutoSize() {
+        // TODO!
+        return new VerticalLayout();
+    }
+    
+    /**
+     *
+     */
+    @TeamAppsDocMethod(title = "Add Components with fill remaining", images = "")
+    public Component addComponentFillRemaining() {
+        // TODO!
+        return new VerticalLayout();
+    }
     
 }
